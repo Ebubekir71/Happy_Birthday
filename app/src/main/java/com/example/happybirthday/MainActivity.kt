@@ -34,7 +34,9 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background)
                 {
-                    GreetingImage(message = "Happy Birthday Sam!", from = "From Ebubekir")
+                    GreetingImage(message = getString(R.string.happy_birthday_text), from = getString(
+                        R.string.signature_text
+                    ))
                 }
 
             }
@@ -50,7 +52,8 @@ fun GreetingText(
 ) {
     Column (
         verticalArrangement = Arrangement.Center,
-        modifier = modifier.padding(8.dp)){
+        modifier = modifier
+    ){
         Text(
             text = message,
             fontSize = 90.sp,
@@ -62,7 +65,7 @@ fun GreetingText(
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
@@ -78,16 +81,12 @@ fun GreetingImage(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             alpha = 0.7F)
-        Text(
-            text ="Hello World",
-            modifier=Modifier.background(color=Color.Green)
-        )
         GreetingText(
             message = message,
             from = from,
             modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp)
+                .fillMaxSize()
+                .padding(8.dp)
         )
     }
 }
@@ -97,7 +96,7 @@ fun GreetingImage(
     name = "Meine Preview"
 )
 @Composable
-fun BirthdayCardPreview() {
+private fun BirthdayCardPreview() {
     HappyBirthdayTheme {
         GreetingImage(message = "Happy Birthday Sam!", from = "From Ebubekir")
     }
